@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @platillo.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @platillo.descripcion %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @platillo.precio %>
+</p>
+
+<%= link_to 'Edit', edit_platillo_path(@platillo) %> |
+<%= link_to 'Back', platillos_path %>

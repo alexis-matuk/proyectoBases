@@ -1,0 +1,29 @@
+<h1>Listing platillos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @platillos.each do |platillo| %>
+      <tr>
+        <td><%= platillo.nombre %></td>
+        <td><%= platillo.descripcion %></td>
+        <td><%= platillo.precio %></td>
+        <td><%= link_to 'Show', platillo %></td>
+        <td><%= link_to 'Edit', edit_platillo_path(platillo) %></td>
+        <td><%= link_to 'Destroy', platillo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Platillo', new_platillo_path %>

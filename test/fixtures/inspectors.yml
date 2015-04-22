@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  institucion: MyString
+  departamento: MyString
+  telefono: 1
+
+two:
+  institucion: MyString
+  departamento: MyString
+  telefono: 1

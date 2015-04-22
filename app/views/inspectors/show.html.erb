@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Institucion:</strong>
+  <%= @inspector.institucion %>
+</p>
+
+<p>
+  <strong>Departamento:</strong>
+  <%= @inspector.departamento %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @inspector.telefono %>
+</p>
+
+<%= link_to 'Edit', edit_inspector_path(@inspector) %> |
+<%= link_to 'Back', inspectors_path %>

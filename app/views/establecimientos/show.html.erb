@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @establecimiento.direccion %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @establecimiento.telefono %>
+</p>
+
+<p>
+  <strong>Codpost:</strong>
+  <%= @establecimiento.codpost %>
+</p>
+
+<%= link_to 'Edit', edit_establecimiento_path(@establecimiento) %> |
+<%= link_to 'Back', establecimientos_path %>

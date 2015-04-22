@@ -1,0 +1,29 @@
+<%= form_for(@inspector) do |f| %>
+  <% if @inspector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inspector.errors.count, "error") %> prohibited this inspector from being saved:</h2>
+
+      <ul>
+      <% @inspector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :institucion %><br>
+    <%= f.text_field :institucion %>
+  </div>
+  <div class="field">
+    <%= f.label :departamento %><br>
+    <%= f.text_field :departamento %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.number_field :telefono %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

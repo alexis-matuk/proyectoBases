@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2015-04-22 18:57:24
+  clientes: 1
+  ingreso: 1.5
+
+two:
+  fecha: 2015-04-22 18:57:24
+  clientes: 1
+  ingreso: 1.5
