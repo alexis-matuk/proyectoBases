@@ -1,0 +1,17 @@
+<%= form_for(@establecimiento_proveedor) do |f| %>
+  <% if @establecimiento_proveedor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@establecimiento_proveedor.errors.count, "error") %> prohibited this establecimiento_proveedor from being saved:</h2>
+
+      <ul>
+      <% @establecimiento_proveedor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

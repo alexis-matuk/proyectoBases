@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :establecimiento_proveedors
+
   resources :inspectors
 
   resources :reportes
