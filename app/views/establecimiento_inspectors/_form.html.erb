@@ -1,0 +1,25 @@
+<%= form_for(@establecimiento_inspector) do |f| %>
+  <% if @establecimiento_inspector.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@establecimiento_inspector.errors.count, "error") %> prohibited this establecimiento_inspector from being saved:</h2>
+
+      <ul>
+      <% @establecimiento_inspector.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module IngredientePlatillosHelper
+end

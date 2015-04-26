@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :ingrediente_platillos
+
+  resources :establecimiento_platillos
+
+  resources :establecimiento_inspectors
+
   resources :establecimiento_proveedors
 
   resources :inspectors

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @establecimiento_inspector.nombre %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @establecimiento_inspector.fecha %>
+</p>
+
+<%= link_to 'Edit', edit_establecimiento_inspector_path(@establecimiento_inspector) %> |
+<%= link_to 'Back', establecimiento_inspectors_path %>

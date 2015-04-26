@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425210454) do
+ActiveRecord::Schema.define(version: 20150426173002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,29 @@ ActiveRecord::Schema.define(version: 20150425210454) do
     t.datetime "updated_at"
     t.integer  "establecimiento_id"
   end
+
+  create_table "establecimiento_inspectors", force: true do |t|
+    t.string   "nombre"
+    t.date     "fecha"
+    t.integer  "establecimiento_id"
+    t.integer  "proveedor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "establecimiento_inspectors", ["establecimiento_id"], name: "index_establecimiento_inspectors_on_establecimiento_id", using: :btree
+  add_index "establecimiento_inspectors", ["proveedor_id"], name: "index_establecimiento_inspectors_on_proveedor_id", using: :btree
+
+  create_table "establecimiento_platillos", force: true do |t|
+    t.date     "introduccion"
+    t.integer  "establecimiento_id"
+    t.integer  "platillo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "establecimiento_platillos", ["establecimiento_id"], name: "index_establecimiento_platillos_on_establecimiento_id", using: :btree
+  add_index "establecimiento_platillos", ["platillo_id"], name: "index_establecimiento_platillos_on_platillo_id", using: :btree
 
   create_table "establecimiento_proveedors", force: true do |t|
     t.integer  "establecimiento_id"
@@ -43,6 +66,16 @@ ActiveRecord::Schema.define(version: 20150425210454) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ingrediente_platillos", force: true do |t|
+    t.integer  "ingrediente_id"
+    t.integer  "platillo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingrediente_platillos", ["ingrediente_id"], name: "index_ingrediente_platillos_on_ingrediente_id", using: :btree
+  add_index "ingrediente_platillos", ["platillo_id"], name: "index_ingrediente_platillos_on_platillo_id", using: :btree
 
   create_table "ingredientes", force: true do |t|
     t.string   "nombre"

@@ -1,0 +1,2 @@
+module EstablecimientoInspectorsHelper
+end
