@@ -19,6 +19,10 @@
   <strong>Salario:</strong>
   <%= @empleado.salario %>
 </p>
+<p>
+  <strong>Establecimiento:</strong>
+  <%= @empleado.establecimiento_id %>
+</p>
 
 <%= link_to 'Edit', edit_empleado_path(@empleado) %> |
 <%= link_to 'Back', empleados_path %>
