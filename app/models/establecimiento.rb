@@ -11,4 +11,8 @@ class Establecimiento < ActiveRecord::Base
 	has_many :establecimiento_platillos, :dependent => :delete_all
 	has_many :platillos, :through => :establecimiento_platillos
 
+	validates :direccion, presence: true, length:{minimum: 5, maximum:40}
+	validates :telefono, presence: true
+	validates :codpost, presence: true
+
 end

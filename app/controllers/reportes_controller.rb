@@ -69,6 +69,6 @@ class ReportesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reporte_params
-      params.require(:reporte).permit(:fecha, :clientes, :ingreso)
+      params.require(:reporte).permit(:fecha, :clientes, :ingreso, :establecimiento_id)
     end
 end
