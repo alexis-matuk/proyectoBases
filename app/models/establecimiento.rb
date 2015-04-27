@@ -1,14 +1,14 @@
 class Establecimiento < ActiveRecord::Base
-	has_many :empleados
-	has_many :reportes
+	has_many :empleados, :dependent => :delete_all
+	has_many :reportes, :dependent => :delete_all
 
-	has_many :establecimiento_proveedors
+	has_many :establecimiento_proveedors, :dependent => :delete_all
 	has_many :proveedors, :through => :establecimiento_proveedors
 
-	has_many :establecimiento_inspectors
+	has_many :establecimiento_inspectors, :dependent => :delete_all
 	has_many :inspectors, :through => :establecimiento_inspectors
 
-	has_many :establecimiento_platillos
+	has_many :establecimiento_platillos, :dependent => :delete_all
 	has_many :platillos, :through => :establecimiento_platillos
 
 end

@@ -10,5 +10,10 @@
   <%= @ingrediente.precio %>
 </p>
 
+<p>
+  <strong>Proveedor:</strong>
+  <%= @ingrediente.proveedor_id %>
+</p>
+
 <%= link_to 'Edit', edit_ingrediente_path(@ingrediente) %> |
 <%= link_to 'Back', ingredientes_path %>
