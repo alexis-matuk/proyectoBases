@@ -10,5 +10,4 @@ class Establecimiento < ActiveRecord::Base
 
 	has_many :establecimiento_platillos, :dependent => :delete_all
 	has_many :platillos, :through => :establecimiento_platillos
-
 end
