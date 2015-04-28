@@ -15,6 +15,7 @@ class PlatillosController < ApplicationController
   # GET /platillos/new
   def new
     @platillo = Platillo.new
+    @@establecimiento = Establecimiento.find(params[:id])
   end
 
   # GET /platillos/1/edit
@@ -28,6 +29,8 @@ class PlatillosController < ApplicationController
 
     respond_to do |format|
       if @platillo.save
+        @establecimiento_platillo = EstablecimientoPlatillo.new(establecimiento_id: @@establecimiento.id, platillo_id: @platillo.id, introduccion: Time.now)
+        @establecimiento_platillo.save
         format.html { redirect_to @platillo, notice: 'Platillo was successfully created.' }
         format.json { render :show, status: :created, location: @platillo }
       else

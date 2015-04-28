@@ -19,6 +19,7 @@
         <td><%= link_to 'Show', establecimiento %></td>
         <td><%= link_to 'Edit', edit_establecimiento_path(establecimiento) %></td>
         <td><%= link_to 'Destroy', establecimiento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Platillo', new_platillo_path(id: establecimiento)%>
       </tr>
     <% end %>
   </tbody>
