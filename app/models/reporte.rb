@@ -9,7 +9,7 @@ class Reporte < ActiveRecord::Base
 	validate :validate_establecimiento_id
 
 
-	def validate_establecimiento_id
+  def validate_establecimiento_id
     errors.add(:establecimiento_id, "is invalid") unless Establecimiento.exists?(self.establecimiento_id)
   end
 end

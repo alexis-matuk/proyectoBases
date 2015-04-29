@@ -14,4 +14,5 @@ class Establecimiento < ActiveRecord::Base
 	validates :direccion, presence: true, length:{minimum: 5, maximum:40}
 	validates :telefono, presence: true
 	validates :codpost, presence: true
+
 end
