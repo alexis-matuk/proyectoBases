@@ -15,6 +15,4 @@ class Establecimiento < ActiveRecord::Base
 	validates :telefono, presence: true
 	validates :codpost, presence: true
 
-	
-
 end

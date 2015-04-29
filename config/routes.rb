@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   #get '/proveedors/:id/ingrediente', to: 'proveedors#ingrediente', as: 'ingredientes_proveedor'
   get '/proveedors/:id/ingrediente', to: 'ingredientes#new', as: 'proveedors_new_ingrediente'
+  # devise_for :users
+ devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :ingrediente_platillos
 
@@ -23,13 +25,17 @@ Rails.application.routes.draw do
 
   resources :platillos
 
-  resources :establecimientos
+  resources :establecimientos do
+    resources :platillos
+  end
+
+  root 'establecimientos#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  #root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

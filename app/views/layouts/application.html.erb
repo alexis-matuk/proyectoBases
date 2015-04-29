@@ -8,8 +8,16 @@
 </head>
 <body>
 
-<div class="container">
-<%= yield %>
-</div>
+<%= render 'layouts/header'%>
+
+<% if user_signed_in?%>
+<%= render 'layouts/navigation'%>
+<% end %>
+
+	<div class="container">
+		<%= yield %>
+	</div>
+<%= render 'layouts/footer'%>
+
 </body>
 </html>
