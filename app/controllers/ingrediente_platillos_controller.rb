@@ -28,7 +28,7 @@ class IngredientePlatillosController < ApplicationController
 
     respond_to do |format|
       if @ingrediente_platillo.save
-        format.html { redirect_to @ingrediente_platillo, notice: 'Ingrediente platillo was successfully created.' }
+        format.html { redirect_to @ingrediente_platillo}
         format.json { render :show, status: :created, location: @ingrediente_platillo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class IngredientePlatillosController < ApplicationController
   def update
     respond_to do |format|
       if @ingrediente_platillo.update(ingrediente_platillo_params)
-        format.html { redirect_to @ingrediente_platillo, notice: 'Ingrediente platillo was successfully updated.' }
+        format.html { redirect_to @ingrediente_platillo}
         format.json { render :show, status: :ok, location: @ingrediente_platillo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class IngredientePlatillosController < ApplicationController
   def destroy
     @ingrediente_platillo.destroy
     respond_to do |format|
-      format.html { redirect_to ingrediente_platillos_url, notice: 'Ingrediente platillo was successfully destroyed.' }
+      format.html { redirect_to ingrediente_platillos_url}
       format.json { head :no_content }
     end
   end
