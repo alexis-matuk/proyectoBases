@@ -1,31 +1,40 @@
-<h1>Listing proveedors</h1>
+<h1>Lista Proveedores <%= link_to 'New Proveedor', new_proveedor_path, class: "btn btn-success pull-right" %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Email</th>
-      <th>Telefono</th>
-      <th>Representante</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
+<div>
+
+<div class="row">
+   <div class="col-lg-12">
+
+
+<table class="table table-striped table-advance table-hover">
   <tbody>
+  <tr>
+    <th><i class="icon_profile"></i>Nombre</th>
+    <th><i class="icon_mail_alt"></i> Email</th>
+    <th><i class="icon_phone"></i> Teléfono</th>
+    <th><i class="icon_profile"></i> Representante</th>
+    <th> Edit</th>
+    <th> Destroy</th>
+  </tr>
+
     <% @proveedors.each do |proveedor| %>
       <tr>
-        <td><%= proveedor.nombre %></td>
+        <td><%= link_to proveedor.nombre, proveedor %></td>
         <td><%= proveedor.email %></td>
         <td><%= proveedor.telefono %></td>
         <td><%= proveedor.representante %></td>
-        <td><%= link_to 'Show', proveedor %></td>
-        <td><%= link_to 'Edit', edit_proveedor_path(proveedor) %></td>
-        <td><%= link_to 'Destroy', proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+        <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_proveedor_path(proveedor)%></td>
+        <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
 <br>
 
-<%= link_to 'New Proveedor', new_proveedor_path %>
+

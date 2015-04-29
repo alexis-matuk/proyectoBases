@@ -10,4 +10,5 @@ class Platillo < ActiveRecord::Base
 	validates :descripcion, presence: true, length: {maximum:10, maximum:300}
 	validates :precio, presence: true
 
+
 end

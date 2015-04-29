@@ -1,6 +1,6 @@
 <%= form_for(@empleado) do |f| %>
   <% if @empleado.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(@empleado.errors.count, "error") %> prohibited this empleado from being saved:</h2>
 
       <ul>
@@ -10,28 +10,81 @@
       </ul>
     </div>
   <% end %>
+  
+<%= f.hidden_field :establecimiento_id %>
 
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :cargo %><br>
-    <%= f.text_field :cargo %>
-  </div>
-  <div class="field">
-    <%= f.label :contratacion %><br>
-    <%= f.date_select :contratacion %>
-  </div>
-  <div class="field">
-    <%= f.label :salario %><br>
-    <%= f.text_field :salario %>
-  </div>
-  <div class="field">
-    <%= f.label :sucursal %><br>
-    <%= f.text_field :establecimiento_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Datos
+            </header>
+            <div class="panel-body">
+                <div class="form">
+                    <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="cname" class="control-label col-lg-2">Nombre <span class="required">*</span></label>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                         
+                                <%= f.text_field :nombre,{:class => "form-control"} %>
+
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="cemail" class="control-label col-lg-2">Cargo <span class="required">*</span></label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            
+                                <%= f.text_field :cargo , {:class => "form-control"} %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="curl" class="control-label col-lg-2">Contratación</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            
+                                <%= f.date_select :contratacion , {:class => "form-control"} %>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="cname" class="control-label col-lg-2">Salario <span class="required">*</span></label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+
+                                <%= f.number_field :salario , {:class => "form-control"} %>
+                            </div>
+                        </div>
+                        </div>                                      
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                            <br>
+                                <div class="actions">
+                                 <%= link_to 'Back', establecimientos_path,{:class => "btn btn-warning"} %>
+                                  <%= f.submit "Aceptar" ,{:class => "btn btn-primary col-lg-6 pull-right"}%>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
 <% end %>
+
+
+

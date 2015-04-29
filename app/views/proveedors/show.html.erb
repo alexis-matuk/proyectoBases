@@ -1,24 +1,113 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @proveedor.nombre %>
-</p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-<p>
-  <strong>Email:</strong>
-  <%= @proveedor.email %>
-</p>
+    <title>Profile | Creative - Bootstrap 3 Responsive Admin Template</title>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @proveedor.telefono %>
-</p>
+    <!-- Bootstrap CSS -->    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
 
-<p>
-  <strong>Representante:</strong>
-  <%= @proveedor.representante %>
-</p>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <script src="js/lte-ie7.js"></script>
+    <![endif]-->
+  </head>
 
-<%= link_to 'Edit', edit_proveedor_path(@proveedor) %> |
-<%= link_to 'Back', proveedors_path %>
+  <section id="main-content">
+          <section class="wrapper">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-user-md"></i> Proveedor</h3>
+        </div>
+      </div>
+              <div class="row">
+                <!-- profile-widget -->
+                <div class="col-lg-12">
+                    <div class="profile-widget profile-widget-info">
+                          <div class="panel-body">
+                            <div class="col-lg-2 col-sm-2 margin-top: align">
+                            
+                              <h4><%= @proveedor.nombre %></h4>  
+                            </div>
+                            <div class="col-lg-4 col-sm-4 follow-info">
+                                <p>Email: <%= @proveedor.email %></p>
+                                <p>Tel: <%= @proveedor.telefono %></p>
+                                <p>Representante: <%= @proveedor.representante %></i></p>
+                            </div>
+                            <div class="col-lg-3 col-sm-6  pull-right">
+                              <ul>
+                                <li class="active">
+                                   <%= link_to 'Añadir Ingrediente', new_ingrediente_path(proveedor_id: @proveedor),  class: "btn btn-success pull-right" %>
+                                </li> 
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row">
+                 <div class="col-lg-12">
+                    <section class="panel">
+                          <header class="panel-heading tab-bg-info">
+                              <ul class="nav nav-tabs">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#recent-activity">
+                                          <i class="icon-home"></i>
+                                          Ingredientes
+                                      </a>
+                                  </li>
+                              </ul>
+                          </header>
+
+                          <div class="col-sm-12">
+                    
+                          <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>Precio</th>
+                                  <th>Edit</th>
+                                  <th>Destroy</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <% @proveedor.ingredientes.each do |ingrediente| %>
+                              <tr>
+                                <td><%= ingrediente.nombre %></td>
+                                <td><%= ingrediente.precio %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_ingrediente_path(ingrediente) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_plus_alt2"></i></div></div>'.html_safe, ingrediente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+                            </tbody>
+                          </table>
+                    </section>
+                  </div>
+              </div>
+              </div>
+
+      
+
+
+
+
+
