@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :admins
+
+  # devise_for :users
+ devise_for :users, :controllers => { registrations: 'registrations' }
+
   resources :ingrediente_platillos
 
   resources :establecimiento_platillos
