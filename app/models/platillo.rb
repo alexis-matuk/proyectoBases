@@ -8,7 +8,12 @@ class Platillo < ActiveRecord::Base
 
 	validates :nombre, presence: true, length: {minimun:3, maximum: 40}
 	validates :descripcion, presence: true, length: {maximum:10, maximum:300}
+	
 	validates :precio, presence: true
+	validates_numericality_of :precio, 
+	:greater_than_or_equal_to => 0, 
+	:less_than_or_equal_to => 99999999,
+	:message => "Entrada inválida"
 
 
 end
