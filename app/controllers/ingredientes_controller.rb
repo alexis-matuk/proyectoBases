@@ -14,7 +14,7 @@ class IngredientesController < ApplicationController
 
   # GET /ingredientes/new
   def new
-    @ingrediente = Ingrediente.new
+    @ingrediente = Ingrediente.new(proveedor_id: params[:proveedor_id])
   end
 
   # GET /ingredientes/1/edit
@@ -25,6 +25,7 @@ class IngredientesController < ApplicationController
   # POST /ingredientes.json
   def create
     @ingrediente = Ingrediente.new(ingrediente_params)
+  
 
     respond_to do |format|
       if @ingrediente.save
@@ -64,7 +65,7 @@ class IngredientesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ingrediente
-      @ingrediente = Ingrediente.find(params[:id])
+     @ingrediente = Ingrediente.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

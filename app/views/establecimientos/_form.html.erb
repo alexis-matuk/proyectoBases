@@ -1,6 +1,6 @@
 <%= form_for(@establecimiento) do |f| %>
   <% if @establecimiento.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(@establecimiento.errors.count, "error") %> prohibited this establecimiento from being saved:</h2>
 
       <ul>
@@ -11,19 +11,71 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
-  <div class="field">
-    <%= f.label :codpost %><br>
-    <%= f.number_field :codpost %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Datos
+            </header>
+            <div class="panel-body">
+                <div class="form">
+                    <form class="form-validate form-horizontal" id="feedback_form" method="get" action="">
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="cname" class="control-label col-lg-2">Dirección <span class="required">*</span></label>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-12">
+                         
+                                <%= f.text_field :direccion,{:class => "form-control"} %>
+
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="cemail" class="control-label col-lg-2">Teléfono <span class="required">*</span></label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            
+                                <%= f.text_field :telefono , {:class => "form-control"} %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group ">
+                        <div class="row">
+                            <label for="curl" class="control-label col-lg-2">Código Postal</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            
+                                <%= f.number_field :codpost , {:class => "form-control"} %>
+                            </div>
+                        </div>
+                        </div>                                    
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                            <br>
+                                <div class="actions">
+                                 <%= link_to 'Back', establecimientos_path,{:class => "btn btn-warning"} %>
+                                  <%= f.submit "Aceptar" ,{:class => "btn btn-primary col-lg-6 pull-right"}%>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+
+
 <% end %>

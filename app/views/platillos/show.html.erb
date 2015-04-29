@@ -1,19 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @platillo.nombre %>
-</p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @platillo.descripcion %>
-</p>
+    <title>Profile | Creative - Bootstrap 3 Responsive Admin Template</title>
 
-<p>
-  <strong>Precio:</strong>
-  <%= @platillo.precio %>
-</p>
+    <!-- Bootstrap CSS -->    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <script src="js/lte-ie7.js"></script>
+    <![endif]-->
+  </head>
+
+  <section id="main-content">
+          <section class="wrapper">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-user-md"></i> Platillo </h3>
+        </div>
+      </div>
+              <div class="row">
+                <!-- profile-widget -->
+                <div class="col-lg-12">
+                    <div class="profile-widget profile-widget-info">
+                          <div class="panel-body">
+                            <div class="col-lg-4 col-sm-4 text-left margin-top: align">
+                            
+                              <h2><%= @platillo.nombre %></h2>  
+                            </div>
+                            <div class="col-lg-4 col-sm-4 text-center follow-info">
+                            <h4>
+                                <p>Descripción: <%= @platillo.descripcion %></p>
+                            </h4>
+                            </div>
+                            <div class="col-lg-4  pull-right text-right">
+                            <h4>
+                            <p>Precio: <%= @platillo.precio %></p>
+                            </h4>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
 
 <%= link_to 'Edit', edit_platillo_path(@platillo) %> |
 <%= link_to 'Back', platillos_path %>

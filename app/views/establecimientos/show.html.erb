@@ -1,19 +1,174 @@
 <p id="notice"><%= notice %></p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @establecimiento.direccion %>
-</p>
+    <title>Profile | Creative - Bootstrap 3 Responsive Admin Template</title>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @establecimiento.telefono %>
-</p>
+    <!-- Bootstrap CSS -->    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
 
-<p>
-  <strong>Codpost:</strong>
-  <%= @establecimiento.codpost %>
-</p>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+      <script src="js/lte-ie7.js"></script>
+    <![endif]-->
+  </head>
 
-<%= link_to 'Edit', edit_establecimiento_path(@establecimiento) %> |
-<%= link_to 'Back', establecimientos_path %>
+<section id="main-content">
+          <section class="wrapper">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-user-md"></i> Establecimientos </h3>
+        </div>
+      </div>
+	  <div class="row">
+	    <!-- profile-widget -->
+	    	<div class="col-lg-12">
+	        	<div class="profile-widget profile-widget-info">
+	              <div class="panel-body">
+	                <div class="col-lg-4 col-sm-4 text-left">
+	                  <h2><%= @establecimiento.direccion %></h2> 
+	                </div>
+	                <div class="col-lg-4 col-sm-4 follow-info">
+                                <p>Teléfono: <%= @establecimiento.telefono %></p>
+                                <p>Código Postal: <%= @establecimiento.codpost %></p>        
+                     </div>
+	              <div class="col-lg-3 col-sm-3  pull-right">
+                              <ul>
+                                <li class="active">
+                                   <%= link_to 'Añadir Reporte', new_reporte_path(establecimiento_id: @establecimiento),  class: "btn btn-success pull-right" %>
+                                </li> 
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br>
+                                <li class="active">
+                                   <%= link_to 'Añadir Empleado', new_empleado_path(establecimiento_id: @establecimiento),  class: "btn btn-success pull-right" %>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                 <div class="col-lg-12">
+                    <section class="panel">
+                          <header class="panel-heading tab-bg-info">
+                              <ul class="nav nav-tabs">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#empleados">
+                                          <i class="icon-home"></i>
+                                          Empleados
+                                      </a>
+                                  </li>
+                                  <li>
+                                      <a data-toggle="tab" href="#reportes">
+                                          <i class="icon-user"></i>
+                                          Reportes
+                                      </a>
+                                  </li>
+                                  <li class="">
+                                      <a data-toggle="tab" href="#platillos">
+                                          <i class="icon-envelope"></i>
+                                          Platillos
+                                      </a>
+                                  </li>
+                              </ul>
+                          </header>
+                          <div class="panel-body">
+                              <div class="tab-content">
+                                  <div id="empleados" class="tab-pane active"> 
+                                  <section class="panel">  
+                                  <!--AQUI EMPIEZA LA PRIMERA TAB-->                                     
+                            <div class="col-sm-12">            
+                          <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>Cargo</th>
+                                  <th>Contratación</th>
+                                  <th>Salario</th>
+                                  <th>Edit</th>
+                                  <th>Destroy</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <% @establecimiento.empleados.each do |empleado| %>
+                              <tr>
+                                <td><%= empleado.nombre %></td>
+                                <td><%= empleado.cargo %></td>
+                                <td><%= empleado.contratacion %></td>
+                                <td><%= empleado.salario %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_empleado_path(empleado) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_plus_alt2"></i></div></div>'.html_safe, empleado, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+                            </tbody>
+                          </table>
+                         </div>  
+                        </section>
+                     </div>
+                                  <!--AQUI ACABA LA PRIMERA TAB-->
+
+                                  <!--AQUI EMPIEZA LA SEGUNDA TAB-->
+                                  <div id="reportes" class="tab-pane">
+                                    <section class="panel">
+                                      <div class="col-sm-12">
+                                 <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Fecha</th>
+                                  <th>Clientes</th>
+                                  <th>Ingreso</th>
+                                  <th>Edit</th>
+                                  <th>Destroy</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <% @establecimiento.reportes.each do |reporte| %>
+                              <tr>
+                                <td><%= reporte.fecha %></td>
+                                <td><%= reporte.clientes %></td>
+                                <td><%= reporte.ingreso %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_reporte_path(reporte) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_plus_alt2"></i></div></div>'.html_safe, reporte, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+                            </tbody>
+                          </table>
+                                 </div> 
+                                 </section>                    
+                             </div>
+<!--AQUI ACABA LA SEGUNDA PARTE-->
+<!--AQUI VA LA TERCERA PARTE-->
+                              <div id="platillos" class="tab-pane">
+                                    <section class="panel">
+                                    HOLA
+                                    </section>
+                              </div>
+
+<!--AQUI ACABA LA TERCERA PARTE-->
+                            </div>
+                 </div>
+          
+
+                 

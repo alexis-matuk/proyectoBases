@@ -14,7 +14,7 @@ class EmpleadosController < ApplicationController
 
   # GET /empleados/new
   def new
-    @empleado = Empleado.new
+    @empleado = Empleado.new(establecimiento_id: params[:establecimiento_id])
   end
 
   # GET /empleados/1/edit
