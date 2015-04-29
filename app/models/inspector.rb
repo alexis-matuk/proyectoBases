@@ -4,5 +4,5 @@ class Inspector < ActiveRecord::Base
 
 	validates :institucion, presence: true, length: {minimum: 5, maximum: 40}
 	validates :departamento, presence: true, length: {minimum: 5, maximum: 40}
-	validates :telefono, presence: true, :numericality => {:less_than_or_equal_to => Establecimiento.count, :greater_than =>0 }
+	validates :telefono, presence: true
 end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  #get '/proveedors/:id/ingrediente', to: 'proveedors#ingrediente', as: 'ingredientes_proveedor'
+  get '/proveedors/:id/ingrediente', to: 'ingredientes#new', as: 'proveedors_new_ingrediente'
+
   resources :ingrediente_platillos
 
   resources :establecimiento_platillos

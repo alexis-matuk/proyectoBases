@@ -26,6 +26,7 @@ class PlatillosController < ApplicationController
   def create
     @platillo = Platillo.new(platillo_params)
 
+
     respond_to do |format|
       if @platillo.save
         format.html { redirect_to @platillo, notice: 'Platillo was successfully created.' }

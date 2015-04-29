@@ -1,5 +1,5 @@
 class ProveedorsController < ApplicationController
-  before_action :set_proveedor, only: [:show, :edit, :update, :destroy]
+   before_action :set_proveedor, only: [:show, :edit, :update, :destroy, :ingrediente]
 
   # GET /proveedors
   # GET /proveedors.json
@@ -17,6 +17,10 @@ class ProveedorsController < ApplicationController
     @proveedor = Proveedor.new
   end
 
+  #GET /proovedors/ingrediente ???
+  def ingrediente
+   Rails.logger.debug("llamando a ingrediente!")
+  end
   # GET /proveedors/1/edit
   def edit
   end
@@ -64,7 +68,8 @@ class ProveedorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_proveedor
-      @proveedor = Proveedor.find(params[:id])
+       Rails.logger.debug("los parametros son #{params}")
+     @proveedor = Proveedor.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
