@@ -5,6 +5,12 @@ class Proveedor < ActiveRecord::Base
 
 	validates :nombre, presence: true, length:{minimum: 3, maximum: 40}
 	validates :email, presence: true, length:{minimum: 3, maximum: 40}
+	
 	validates :telefono, presence: true
+	validates_numericality_of :telefono, 
+	:greater_than_or_equal_to => 0, 
+	:less_than_or_equal_to => 99999999,
+	:message => "Entre un teléfono válido"
+
 	validates :representante, presence: true, length:{minimum: 3, maximum: 40}
 end
