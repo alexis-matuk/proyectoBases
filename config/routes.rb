@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   resources :platillos
 
-  resources :establecimientos
+  resources :establecimientos do
+    resources :platillos
+  end
 
   root 'establecimientos#index'
 

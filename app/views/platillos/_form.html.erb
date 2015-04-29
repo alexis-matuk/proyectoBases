@@ -1,4 +1,4 @@
-<%= form_for(@platillo) do |f| %>
+<%= form_for (@platillo) do |f| %>
   <% if @platillo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@platillo.errors.count, "error") %> prohibited this platillo from being saved:</h2>
@@ -11,6 +11,7 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :establecimiento_id, :value => @establecimiento.id %>
 
   <div class="field">
     <%= f.label :nombre %><br>
