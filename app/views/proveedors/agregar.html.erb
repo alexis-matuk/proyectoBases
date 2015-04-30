@@ -14,13 +14,14 @@
     <th><i class="icon_mail_alt"></i> Email</th>
     <th><i class="icon_phone"></i> Teléfono</th>
     <th><i class="icon_profile"></i> Representante</th>
-    <th> Edit</th>
-    <th> Destroy</th>
   </tr>
 
     <% @proveedors.each do |proveedor| %>
       <tr>
-        <td><%= proveedor.nombre%></td>
+         <td><%= link_to proveedor.nombre, llenar_establecimiento_proveedor_path(ide: @establecimiento.id, id: proveedor.id) %></td>
+         <td><%= proveedor.email%></td>
+        <td><%= proveedor.telefono %></td>
+        <td><%= proveedor.representante %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +30,3 @@
 </div>
 
 <br>
-
-

@@ -20,16 +20,5 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
     
-	<nav id="sign in">
-	<% if user_signed_in?%>
-		Signed in as <%=current_user.email %>
-		<%=link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'btn btn-warning' %>
-	<%else %>
-		<%= link_to "Sign up", new_user_registration_path, class: 'btn btn-warning' %> <strong> or</strong>
-		<%= link_to "Sign in", new_user_session_path, class: 'btn btn-warning' %>
-	<%end%>
-	</nav>
-	<h2> Los Pollos Hermanos </h2>
-
-	<h3> Aquí se vende pollo </h3>
+	
 </header>

@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
   #get '/proveedors/:id/ingrediente', to: 'proveedors#ingrediente', as: 'ingredientes_proveedor'
   get '/proveedors/:id/ingrediente', to: 'ingredientes#new', as: 'proveedors_new_ingrediente'
+
+  get '/proveedors/agregar', to: 'proveedors#agregar', as: 'agregar_proveedor'
+
+  get '/establecimiento_proveedors/llenar', to: 'establecimiento_proveedors#llenar', as: 'llenar_establecimiento_proveedor'
+
   # devise_for :users
  devise_for :users, :controllers => { registrations: 'registrations' }
 

@@ -2,7 +2,7 @@ class Establecimiento < ActiveRecord::Base
 	has_many :empleados, :dependent => :delete_all
 	has_many :reportes, :dependent => :delete_all
 
-	has_many :establecimiento_proveedors, :dependent => :delete_all
+	has_many :establecimiento_proveedors
 	has_many :proveedors, :through => :establecimiento_proveedors
 
 	has_many :establecimiento_inspectors, :dependent => :delete_all

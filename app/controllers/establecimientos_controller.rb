@@ -10,6 +10,7 @@ class EstablecimientosController < ApplicationController
   # GET /establecimientos/1
   # GET /establecimientos/1.json
   def show
+
   end
 
   # GET /establecimientos/new
