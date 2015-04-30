@@ -5,11 +5,16 @@ class ReportesController < ApplicationController
   # GET /reportes.json
   def index
     @reportes = Reporte.all
+    @reps = Reporte.select("reportes.fecha, reportes.ingreso")
   end
 
+  def test
+    
+  end
   # GET /reportes/1
   # GET /reportes/1.json
   def show
+    @reportes = Reporte.all
   end
 
   # GET /reportes/new

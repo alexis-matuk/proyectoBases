@@ -1,12 +1,10 @@
 
-  <body class="login-img3-body">
 
     <div class="container">
 
     <div class="login-form">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>     
         <div class="login-wrap">
-            <p class="login-img"><i class="icon_lock_alt"></i></p>
 
             <div class="input-group">
               <span class="input-group-addon"><i class="icon_profile"></i></span>
@@ -18,11 +16,6 @@
                 <%= f.password_field :password, autocomplete: "off", class: 'form-control'%>
             </div>
 
-            <label class="checkbox">
-                <%= f.check_box :remember_me  %> Remember me
-                <span class="pull-right"> <a href="#"> Forgot Password?</a></span>
-            </label>
-
             <div class ="actions">
             <%= f.submit "Login" ,{:class => "btn btn-primary btn-lg btn-block"}%>
             </div>
@@ -32,8 +25,6 @@
 
     </div>
 
-
-  </body>
 
 
 <%= render "devise/shared/links" %>
