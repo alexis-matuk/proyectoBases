@@ -5916,3 +5916,20 @@ td.visible-print {
   margin-left: auto;
  }
 
+.navbar-tab-cool{
+    color: #d0d8df;
+  text-decoration: none;
+  display: block;
+  padding: 15px 0 15px 10px;
+  font-size: 16px;
+  font-weight: 300;
+  outline: none;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border-right: 1px solid #D7D7D7;
+  border-bottom: 1px solid #D7D7D7;
+}
+

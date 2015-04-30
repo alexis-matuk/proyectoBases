@@ -19,8 +19,13 @@ class EstablecimientoProveedorsController < ApplicationController
 
   # GET /establecimiento_proveedors/1/edit
   def edit
+    
   end
 
+  def llenar
+    @establecimiento_proveedor = EstablecimientoProveedor.new(establecimiento_id: params[:ide], proveedor_id: params[:id])
+    @establecimiento_proveedor.save
+  end
   # POST /establecimiento_proveedors
   # POST /establecimiento_proveedors.json
   def create

@@ -1,5 +1,5 @@
 class ProveedorsController < ApplicationController
-   before_action :set_proveedor, only: [:show, :edit, :update, :destroy, :ingrediente]
+   before_action :set_proveedor, only: [:show, :edit, :update, :destroy]
 
   # GET /proveedors
   # GET /proveedors.json
@@ -12,18 +12,21 @@ class ProveedorsController < ApplicationController
   def show
   end
 
+  #GET /proveedors/agregar
+  def agregar
+    @proveedors = Proveedor.all
+    @establecimiento = Establecimiento.find(params[:id])
+  end
+
   # GET /proveedors/new
   def new
     @proveedor = Proveedor.new
-  end
+  end 
 
-  #GET /proovedors/ingrediente ???
-  def ingrediente
-   Rails.logger.debug("llamando a ingrediente!")
-  end
   # GET /proveedors/1/edit
   def edit
   end
+
 
   # POST /proveedors
   # POST /proveedors.json
