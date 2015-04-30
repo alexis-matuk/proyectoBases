@@ -12,10 +12,15 @@ class PlatillosController < ApplicationController
   def show
   end
 
+ def agregar
+    @platillos = Platillo.all
+    @establecimiento = Establecimiento.find(params[:id])
+  end
+
+
   # GET /platillos/new
   def new
     @platillo = Platillo.new
-    @establecimiento = Establecimiento.find(params[:id])
     # @@establecimiento = Establecimiento.find(params[:id])
   end
 
@@ -31,8 +36,6 @@ class PlatillosController < ApplicationController
       if @platillo.save
         @establecimiento_platillo = EstablecimientoPlatillo.new(establecimiento_id: platillo_params[:establecimiento_id], platillo_id: @platillo.id, introduccion: Time.now)
         @establecimiento_platillo.save
-        # @establecimiento_platillo = EstablecimientoPlatillo.new(establecimiento_id: @@establecimiento.id, platillo_id: @platillo.id, introduccion: Time.now)
-        # @establecimiento_platillo.save
         format.html { redirect_to @platillo}
         format.json { render :show, status: :created, location: @platillo }
       else
@@ -74,6 +77,6 @@ class PlatillosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def platillo_params
-      params.require(:platillo).permit(:nombre, :descripcion, :precio, :establecimiento_id)
+      params.require(:platillo).permit(:nombre, :descripcion, :precio,:receta, :establecimiento_id)
     end
 end

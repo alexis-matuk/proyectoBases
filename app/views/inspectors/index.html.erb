@@ -11,6 +11,7 @@
 <table class="table table-striped table-advance table-hover">
   <tbody>
   <tr>
+   <th><i class="icon_map"></i>Nombre</th>
     <th><i class="icon_map"></i>Institución</th>
     <th><i class="icon_phone"></i> Departamento</th>
     <th><i class="icon_phone"></i> Teléfono</th>
@@ -20,7 +21,8 @@
 
     <% @inspectors.each do |inspector| %>
       <tr>
-        <td><%= link_to inspector.institucion, inspector %></td>
+        <td><%= link_to inspector.nombre, inspector %></td>
+        <td><%= inspector.institucion %></td>
         <td><%= inspector.departamento %></td>
         <td><%= inspector.telefono%></td>
 

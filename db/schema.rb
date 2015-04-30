@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150428214223) do
+ActiveRecord::Schema.define(version: 20150430044753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,16 +27,15 @@ ActiveRecord::Schema.define(version: 20150428214223) do
   end
 
   create_table "establecimiento_inspectors", force: true do |t|
-    t.string   "nombre"
     t.date     "fecha"
     t.integer  "establecimiento_id"
-    t.integer  "proveedor_id"
+    t.integer  "inspector_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "establecimiento_inspectors", ["establecimiento_id"], name: "index_establecimiento_inspectors_on_establecimiento_id", using: :btree
-  add_index "establecimiento_inspectors", ["proveedor_id"], name: "index_establecimiento_inspectors_on_proveedor_id", using: :btree
+  add_index "establecimiento_inspectors", ["inspector_id"], name: "index_establecimiento_inspectors_on_inspector_id", using: :btree
 
   create_table "establecimiento_platillos", force: true do |t|
     t.date     "introduccion"
@@ -49,9 +48,8 @@ ActiveRecord::Schema.define(version: 20150428214223) do
   add_index "establecimiento_platillos", ["establecimiento_id"], name: "index_establecimiento_platillos_on_establecimiento_id", using: :btree
   add_index "establecimiento_platillos", ["platillo_id"], name: "index_establecimiento_platillos_on_platillo_id", using: :btree
 
-  create_table "establecimiento_proveedors", force: true do |t|
-    t.integer  "establecimiento_id"
-    t.integer  "proveedor_id"
+  create_table "establecimiento_proveedors", primary_key: "establecimiento_id", force: true do |t|
+    t.integer  "proveedor_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -86,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150428214223) do
   end
 
   create_table "inspectors", force: true do |t|
+    t.string   "nombre"
     t.string   "institucion"
     t.string   "departamento"
     t.integer  "telefono"

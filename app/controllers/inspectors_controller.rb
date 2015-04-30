@@ -12,6 +12,11 @@ class InspectorsController < ApplicationController
   def show
   end
 
+ def agregar
+    @inspectors = Inspector.all
+    @establecimiento = Establecimiento.find(params[:id])
+  end
+
   # GET /inspectors/new
   def new
     @inspector = Inspector.new
@@ -69,6 +74,6 @@ class InspectorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inspector_params
-      params.require(:inspector).permit(:institucion, :departamento, :telefono)
+      params.require(:inspector).permit(:nombre, :institucion, :departamento, :telefono)
     end
 end

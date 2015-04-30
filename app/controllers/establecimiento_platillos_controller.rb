@@ -21,6 +21,17 @@ class EstablecimientoPlatillosController < ApplicationController
   def edit
   end
 
+   def llenar
+    @existe = EstablecimientoPlatillo.select("EstablecimientoPlatillo.*").where("establecimiento_id = ?", params[:ide]).where("platillo_id = ?", params[:id])
+    @establecimiento = Establecimiento.find(params[:ide])
+    if @existe.empty?
+      @establecimiento_proveedor = EstablecimientoPlatillo.new(establecimiento_id: params[:ide], platillo_id: params[:id], introduccion: Time.now)
+      @establecimiento_proveedor.save
+    else 
+      redirect_to agregar_platillo_path(id: @establecimiento), :flash => { :error => "Ese platillo ya está asociado al establecimiento" }
+    end
+  end
+
   # POST /establecimiento_platillos
   # POST /establecimiento_platillos.json
   def create

@@ -20,7 +20,13 @@
 
     <% @proveedors.each do |proveedor| %>
       <tr>
-        <td><%= proveedor.nombre%></td>
+        <td><%= link_to proveedor.nombre, proveedor %></td>
+         <td><%= proveedor.email%></td>
+        <td><%= proveedor.telefono %></td>
+        <td><%= proveedor.representante %></td>
+         <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_proveedor_path(proveedor)%></td>
+        <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>

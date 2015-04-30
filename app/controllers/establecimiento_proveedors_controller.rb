@@ -23,8 +23,14 @@ class EstablecimientoProveedorsController < ApplicationController
   end
 
   def llenar
-    @establecimiento_proveedor = EstablecimientoProveedor.new(establecimiento_id: params[:ide], proveedor_id: params[:id])
-    @establecimiento_proveedor.save
+    @existe = EstablecimientoProveedor.select("EstablecimientoProveedor.*").where("establecimiento_id = ?", params[:ide]).where("proveedor_id = ?", params[:id])
+    @establecimiento = Establecimiento.find(params[:ide])
+    if @existe.empty?
+      @establecimiento_proveedor = EstablecimientoProveedor.new(establecimiento_id: params[:ide], proveedor_id: params[:id])
+      @establecimiento_proveedor.save
+    else 
+      redirect_to agregar_proveedor_path(id: @establecimiento), :flash => { :error => "Ese proveedor ya está asociado al establecimiento" }
+    end
   end
   # POST /establecimiento_proveedors
   # POST /establecimiento_proveedors.json

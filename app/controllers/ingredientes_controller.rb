@@ -10,6 +10,12 @@ class IngredientesController < ApplicationController
   # GET /ingredientes/1
   # GET /ingredientes/1.json
   def show
+    
+  end
+
+   def agregar
+    @ingredientes = Ingrediente.all
+    @platillo = Platillo.find(params[:id])
   end
 
   # GET /ingredientes/new

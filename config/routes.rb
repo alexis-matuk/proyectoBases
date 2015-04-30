@@ -7,6 +7,18 @@ Rails.application.routes.draw do
 
   get '/establecimiento_proveedors/llenar', to: 'establecimiento_proveedors#llenar', as: 'llenar_establecimiento_proveedor'
 
+  get '/platillos/agregar', to: 'platillos#agregar', as: 'agregar_platillo'
+
+  get '/establecimiento_platillos/llenar', to: 'establecimiento_platillos#llenar', as: 'llenar_establecimiento_platillo'
+
+  get '/inspectors/agregar', to: 'inspectors#agregar', as: 'agregar_inspector'
+
+  get '/establecimiento_inspectors/llenar', to: 'establecimiento_inspectors#llenar', as: 'llenar_establecimiento_inspector'
+
+   get '/ingredientes/agregar', to: 'ingredientes#agregar', as: 'agregar_ingrediente'
+
+  get '/ingrediente_platillos/llenar', to: 'ingrediente_platillos#llenar', as: 'llenar_ingrediente_platillo'
+
   # devise_for :users
  devise_for :users, :controllers => { registrations: 'registrations' }
 

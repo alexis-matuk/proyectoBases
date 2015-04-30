@@ -21,6 +21,16 @@ class EstablecimientoInspectorsController < ApplicationController
   def edit
   end
 
+def llenar
+    @existe = EstablecimientoInspector.select("EstablecimientoInspectors.*").where("establecimiento_id = ?", params[:ide]).where("inspector_id = ?", params[:id])
+    @establecimiento = Establecimiento.find(params[:ide])
+    if @existe.empty?
+      @establecimiento_proveedor = EstablecimientoInspector.new(establecimiento_id: params[:ide], inspector_id: params[:id], fecha: Time.now)
+      @establecimiento_proveedor.save
+    else 
+      redirect_to agregar_inspector_path(id: @establecimiento), :flash => { :error => "Ese proveedor ya está asociado al establecimiento" }
+    end
+  end
   # POST /establecimiento_inspectors
   # POST /establecimiento_inspectors.json
   def create
@@ -69,6 +79,6 @@ class EstablecimientoInspectorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def establecimiento_inspector_params
-      params.require(:establecimiento_inspector).permit(:nombre, :fecha)
+      params.require(:establecimiento_inspector).permit(:fecha)
     end
 end

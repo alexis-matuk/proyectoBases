@@ -20,7 +20,16 @@ class IngredientePlatillosController < ApplicationController
   # GET /ingrediente_platillos/1/edit
   def edit
   end
-
+def llenar
+    @existe = IngredientePlatillo.select("IngredientePlatillos.*").where("platillo_id = ?", params[:ide]).where("ingrediente_id = ?", params[:id])
+    @platillo = Platillo.find(params[:ide])
+    if @existe.empty?
+      @ingrediente_platillo = IngredientePlatillo.new(platillo_id: params[:ide], ingrediente_id: params[:id])
+      @ingrediente_platillo.save
+    else 
+      redirect_to agregar_ingrediente_path(id: @platillo), :flash => { :error => "Ese Ingrediente ya está asociado al Platillo" }
+    end
+  end
   # POST /ingrediente_platillos
   # POST /ingrediente_platillos.json
   def create

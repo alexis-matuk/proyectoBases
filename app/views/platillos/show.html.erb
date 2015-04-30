@@ -20,8 +20,10 @@
                             <div class="col-lg-4 col-sm-4 text-center follow-info">
                             <h4>
                                 <p>Descripción: <%= @platillo.descripcion %></p>
+                                <p>Receta: <%= @platillo.receta %></p>
                             </h4>
                             </div>
+                            
                             <div class="col-lg-4  pull-right text-right">
                             <h4>
                             <p>Precio: <%= @platillo.precio %></p>
@@ -31,7 +33,30 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                 <div class="col-lg-12">
+                    <section class="panel">
+                          <header class="panel-heading tab-bg-info">
+                              <ul class="nav nav-tabs">
+                                  <li class="active">
+                                      <a data-toggle="tab" href="#ingrediente">
+                                          <i class="icon-home"></i>
+                                          Ingredientes
+                                      </a>
+                                  </li>
+                                  
+                              </ul>
+                          </header>
+                          <div class="panel-body">
+                              <div class="tab-content">
+                                  <div id="ingrediente" class="tab-pane active"> 
+                                  <section class="panel">  
+                                  <!--AQUI EMPIEZA LA PRIMERA TAB-->                                     
+                            <div class="col-sm-12">    
+                            <%= link_to 'Añadir Ingrediente', agregar_ingrediente_path(id: @platillo),  class: "btn btn-success pull-right" %>     
+                          </div>
+                        </section>
+                    
+                    </div>
+                    </div>
 
-
-<%= link_to 'Edit', edit_platillo_path(@platillo) %> |
-<%= link_to 'Back', platillos_path %>
