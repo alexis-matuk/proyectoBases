@@ -4,7 +4,7 @@
               <!-- sidebar menu start-->
               <nav id="sign in">
 	<% if user_signed_in?%>
-		Signed in as <%=current_user.email %>
+	<h4>	<font color="white">Signed in as <%=current_user.email %></font></h4>
 		<%=link_to "Sign out", destroy_user_session_path, :method => :delete, class: 'btn btn-warning' %>
 	<%else %>
 		<%= link_to "Sign in", new_user_session_path, class: 'btn btn-warning' %>
