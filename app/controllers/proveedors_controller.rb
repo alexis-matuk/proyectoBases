@@ -4,7 +4,11 @@ class ProveedorsController < ApplicationController
   # GET /proveedors
   # GET /proveedors.json
   def index
-    @proveedors = Proveedor.all
+    if params[:search]
+      @proveedors = Proveedor.search(params[:search]).order("created_at DESC")
+    else
+      @proveedors = Proveedor.order("created_at DESC")
+    end
   end
 
   # GET /proveedors/1

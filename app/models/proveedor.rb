@@ -15,4 +15,8 @@ class Proveedor < ActiveRecord::Base
 	:message => "Entre un teléfono válido"
 
 	validates :representante, presence: true, length:{minimum: 3, maximum: 40}
+
+	def self.search(query)
+    where("nombre like ?", "%#{query}%") 
+  end
 end
