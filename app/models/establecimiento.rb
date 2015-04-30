@@ -5,10 +5,10 @@ class Establecimiento < ActiveRecord::Base
 	has_many :establecimiento_proveedors
 	has_many :proveedors, :through => :establecimiento_proveedors
 
-	has_many :establecimiento_inspectors, :dependent => :delete_all
+	has_many :establecimiento_inspectors
 	has_many :inspectors, :through => :establecimiento_inspectors
 
-	has_many :establecimiento_platillos, :dependent => :delete_all
+	has_many :establecimiento_platillos
 	has_many :platillos, :through => :establecimiento_platillos
 
 	validates :direccion, presence: true, length:{minimum: 5, maximum:40}
