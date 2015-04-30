@@ -213,7 +213,7 @@
                               <div id="inspectores" class="tab-pane">
                                     <section class="panel">
 
-                                    <%= link_to 'Añadir Inspector', new_inspector_path(id: @establecimiento),  class: "btn btn-success pull-right" %>
+                                    <%= link_to 'Añadir Inspector', agregar_inspector_path(id: @establecimiento),  class: "btn btn-success pull-right" %>
                                       
 
                                       <table class="table table-striped">
@@ -235,7 +235,6 @@
                                 <td><%= inspector.institucion %></td>
                                 <td><%= inspector.departamento %></td>
                                 <td><%= inspector.telefono %></td>
-                                <td><%= inspector.fecha %></td>
                                 <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_inspector_path(inspector) %></td>
                                 <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, inspector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                               </tr>
