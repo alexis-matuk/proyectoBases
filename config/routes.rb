@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
  post '/users/sign_up', to: 'devise/sessions#create'
 
+
   # devise_for :users
  devise_for :users, except: :sign_up, :controllers => { registrations: 'registrations' }
 
