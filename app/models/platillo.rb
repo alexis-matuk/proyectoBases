@@ -15,5 +15,7 @@ class Platillo < ActiveRecord::Base
 	:less_than_or_equal_to => 99999999,
 	:message => "Entrada inválida"
 
-
+	def self.search(query)
+    where("nombre like ?", "%#{query}%") 
+  	end
 end

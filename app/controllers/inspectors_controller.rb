@@ -4,7 +4,11 @@ class InspectorsController < ApplicationController
   # GET /inspectors
   # GET /inspectors.json
   def index
-    @inspectors = Inspector.all
+       if params[:search]
+      @inspectors = Inspector.search(params[:search]).order("created_at DESC")
+    else
+      @inspectors = Inspector.order("created_at DESC")
+    end
   end
 
   # GET /inspectors/1

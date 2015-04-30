@@ -26,4 +26,8 @@ class Establecimiento < ActiveRecord::Base
 	:less_than_or_equal_to => 99999,
 	:message => "Entre un código postal válido"
 
+	def self.search(query)
+    where("direccion like ?", "%#{query}%") 
+  end
+
 end
