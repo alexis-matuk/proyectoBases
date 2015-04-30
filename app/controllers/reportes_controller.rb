@@ -6,7 +6,6 @@ class ReportesController < ApplicationController
   def index
     @reportes = Reporte.all
     @reps = Reporte.select("reportes.fecha, reportes.ingreso")
-    test
   end
 
   def test
