@@ -136,6 +136,36 @@
                                     <section class="panel">
                                     <%= link_to 'Añadir Platillo', new_platillo_path(id: @establecimiento),  class: "btn btn-success pull-right" %>
                                     
+
+                                    <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>Descripción</th>
+                                  <th>Precio</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              
+
+                              <% @platillos.each do |platillo| %>
+                              <tr>
+                                <td><%= platillo.nombre %></td>
+                                <td><%= platillo.descripcion %></td>
+                                <td><%= platillo.precio %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_platillo_path(platillo) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, platillo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+
+
+
+                            </tbody>
+                          </table>
+
+
+
                                     </section>
                               </div>
 
@@ -145,6 +175,37 @@
                                     <section class="panel">
                                     <%= link_to 'Añadir Proveedor', agregar_proveedor_path(id: @establecimiento),  class: "btn btn-success pull-right" %>
                                     
+
+                                     <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>Email</th>
+                                  <th>Teléfono</th>
+                                  <th>Representante</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              
+
+                              <% @proveedores.each do |proveedor| %>
+                              <tr>
+                                <td><%= proveedor.nombre %></td>
+                                <td><%= proveedor.email %></td>
+                                <td><%= proveedor.telefono %></td>
+                                <td><%= proveedor.representante %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_proveedor_path(proveedor) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+
+
+
+                            </tbody>
+                          </table>
+
+
                                     </section>
                               </div>
                               <!--AQUI ACABA LA CUARTA PARTE-->
@@ -152,7 +213,36 @@
                               <div id="inspectores" class="tab-pane">
                                     <section class="panel">
                                     <%= link_to 'Añadir Inspector', new_inspector_path(id: @establecimiento),  class: "btn btn-success pull-right" %>
-  
+                                      
+
+                                      <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Institución</th>
+                                  <th>Departamento</th>
+                                  <th>Teléfono</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              
+
+                              <% @inspectores.each do |inspector| %>
+                              <tr>
+                                <td><%= inspector.institucion %></td>
+                                <td><%= inspector.departamento %></td>
+                                <td><%= inspector.telefono %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_inspector_path(inspector) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, inspector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+
+
+
+                            </tbody>
+                          </table>
+
+
                                     </section>
                               </div>
                               <!--AQUI ACABA LA QUINTA PARTE-->

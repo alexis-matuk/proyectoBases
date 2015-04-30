@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20150428214223) do
     t.string   "nombre"
     t.date     "fecha"
     t.integer  "establecimiento_id"
-    t.integer  "proveedor_id"
+    t.integer  "inspector_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "establecimiento_inspectors", ["establecimiento_id"], name: "index_establecimiento_inspectors_on_establecimiento_id", using: :btree
-  add_index "establecimiento_inspectors", ["proveedor_id"], name: "index_establecimiento_inspectors_on_proveedor_id", using: :btree
+  add_index "establecimiento_inspectors", ["inspector_id"], name: "index_establecimiento_inspectors_on_inspector_id", using: :btree
 
   create_table "establecimiento_platillos", force: true do |t|
     t.date     "introduccion"

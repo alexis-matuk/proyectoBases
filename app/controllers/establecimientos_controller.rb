@@ -10,7 +10,9 @@ class EstablecimientosController < ApplicationController
   # GET /establecimientos/1
   # GET /establecimientos/1.json
   def show
-
+    @proveedores = Proveedor.select("proveedors.*").joins("JOIN establecimiento_proveedors ON establecimiento_proveedors.proveedor_id = proveedors.id").where("establecimiento_proveedors.establecimiento_id = ?",params[:id])
+    @inspectores = Inspector.select("inspectors.*").joins("JOIN establecimiento_inspectors ON establecimiento_inspectors.inspector_id = inspectors.id").where("establecimiento_inspectors.establecimiento_id = ?",params[:id])
+    @platillos = Platillo.select("platillos.*").joins("JOIN establecimiento_platillos ON establecimiento_platillos.platillo_id = platillos.id").where("establecimiento_platillos.establecimiento_id = ?",params[:id])
   end
 
   # GET /establecimientos/new

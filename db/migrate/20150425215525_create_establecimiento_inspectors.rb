@@ -5,7 +5,7 @@ class CreateEstablecimientoInspectors < ActiveRecord::Migration
       t.date :fecha
 
       t.belongs_to :establecimiento, index: true
-      t.belongs_to :proveedor, index: true
+      t.belongs_to :inspector, index: true
 
       t.timestamps
     end
