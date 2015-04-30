@@ -12,4 +12,8 @@ class Inspector < ActiveRecord::Base
 	:greater_than_or_equal_to => 0, 
 	:less_than_or_equal_to => 99999999,
 	:message => "Entre un teléfono válido"
+
+	def self.search(query)
+    where("institucion like ?", "%#{query}%") 
+  	end
 end

@@ -4,7 +4,11 @@ class EstablecimientosController < ApplicationController
   # GET /establecimientos
   # GET /establecimientos.json
   def index
-    @establecimientos = Establecimiento.all
+    if params[:search]
+      @establecimientos = Establecimiento.search(params[:search]).order("created_at DESC")
+    else
+      @establecimientos = Establecimiento.order("created_at DESC")
+    end
   end
 
   # GET /establecimientos/1

@@ -4,7 +4,11 @@ class PlatillosController < ApplicationController
   # GET /platillos
   # GET /platillos.json
   def index
-    @platillos = Platillo.all
+   if params[:search]
+      @platillos = Platillo.search(params[:search]).order("created_at DESC")
+    else
+      @platillos = Platillo.order("created_at DESC")
+    end
   end
 
   # GET /platillos/1

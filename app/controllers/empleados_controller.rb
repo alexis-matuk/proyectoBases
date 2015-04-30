@@ -4,7 +4,11 @@ class EmpleadosController < ApplicationController
   # GET /empleados
   # GET /empleados.json
   def index
-    @empleados = Empleado.all
+       if params[:search]
+      @empleados = Empleado.search(params[:search]).order("created_at DESC")
+    else
+      @empleados = Empleado.order("created_at DESC")
+    end
   end
 
   # GET /empleados/1

@@ -14,7 +14,10 @@ class Empleado < ActiveRecord::Base
  	validates :establecimiento_id, presence: true
 
  	validate :validate_establecimiento_id
-
+	
+	def self.search(query)
+    where("nombre like ?", "%#{query}%") 
+  	end
 
 	def validate_establecimiento_id
 	errors.add(:establecimiento_id, "is invalid") unless Establecimiento.exists?(self.establecimiento_id)
