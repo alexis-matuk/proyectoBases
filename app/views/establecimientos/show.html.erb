@@ -218,6 +218,7 @@
                                       <table class="table table-striped">
                               <thead>
                               <tr>
+                                  <th>Nombre</th>
                                   <th>Institución</th>
                                   <th>Departamento</th>
                                   <th>Teléfono</th>
@@ -229,6 +230,7 @@
 
                               <% @inspectores.each do |inspector| %>
                               <tr>
+                              <td><%= inspector.nombre %></td>
                                 <td><%= inspector.institucion %></td>
                                 <td><%= inspector.departamento %></td>
                                 <td><%= inspector.telefono %></td>

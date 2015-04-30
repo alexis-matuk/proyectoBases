@@ -90,4 +90,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  match ":url" => "application#redirect_user", :constraints => { :url => /.*/ }, via: [:get, :post]
 end
