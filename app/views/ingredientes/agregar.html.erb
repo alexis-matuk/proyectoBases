@@ -15,12 +15,16 @@
   <tr>
     <th><i class="icon_profile"></i>Nombre</th>
     <th><i class="icon_mail_alt"></i> Precio</th>
+    <th> Edit</th>
+    <th> Destroy</th>
   </tr>
 
     <% @ingredientes.each do |ingrediente| %>
       <tr>
          <td><%= link_to ingrediente.nombre, llenar_ingrediente_platillo_path(ide: @platillo.id, id: ingrediente.id) %></td>
          <td><%= ingrediente.precio%></td>
+         <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_ingrediente_path(ingrediente)%></td>
+        <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, ingrediente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

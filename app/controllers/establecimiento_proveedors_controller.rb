@@ -32,6 +32,11 @@ class EstablecimientoProveedorsController < ApplicationController
       redirect_to agregar_proveedor_path(id: @establecimiento), :flash => { :error => "Ese proveedor ya está asociado al establecimiento" }
     end
   end
+
+ def vaciar
+    EstablecimientoProveedor.where(:proveedor_id => params[:id_prov]).delete_all
+ end
+
   # POST /establecimiento_proveedors
   # POST /establecimiento_proveedors.json
   def create

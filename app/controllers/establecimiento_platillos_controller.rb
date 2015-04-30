@@ -32,6 +32,10 @@ class EstablecimientoPlatillosController < ApplicationController
     end
   end
 
+  def vaciar
+    EstablecimientoPlatillo.where(:platillo_id => params[:id]).delete_all
+  end
+
   # POST /establecimiento_platillos
   # POST /establecimiento_platillos.json
   def create

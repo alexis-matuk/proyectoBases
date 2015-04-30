@@ -31,7 +31,7 @@
                               <ul class="nav nav-tabs">
                                   <li class="active">
                                       <a data-toggle="tab" href="#empleados">
-                                          <i class="icon-home"></i>
+                                          <i class="icon-group"></i>
                                           Empleados
                                       </a>
                                   </li>
@@ -154,7 +154,7 @@
                                 <td><%= platillo.descripcion %></td>
                                 <td><%= platillo.precio %></td>
                                 <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_platillo_path(platillo) %></td>
-                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, platillo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, vaciar_establecimiento_platillo_path(id: platillo.id), data: { confirm: 'Are you sure?' } %></td>
                               </tr>
                              <br>
                            <% end %>
@@ -195,7 +195,7 @@
                                 <td><%= proveedor.telefono %></td>
                                 <td><%= proveedor.representante %></td>
                                 <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_proveedor_path(proveedor) %></td>
-                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, vaciar_establecimiento_proveedor_path(id_prov: proveedor.id), data: { confirm: 'Are you sure?' } %></td>
                               </tr>
                              <br>
                            <% end %>
@@ -236,7 +236,7 @@
                                 <td><%= inspector.departamento %></td>
                                 <td><%= inspector.telefono %></td>
                                 <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_inspector_path(inspector) %></td>
-                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, inspector, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, vaciar_establecimiento_inspector_path(id: inspector.id), data: { confirm: 'Are you sure?' } %></td>
                               </tr>
                              <br>
                            <% end %>

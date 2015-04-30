@@ -9,15 +9,27 @@ Rails.application.routes.draw do
 
   get '/platillos/agregar', to: 'platillos#agregar', as: 'agregar_platillo'
 
+  get '/inspectors/agregar', to: 'inspectors#agregar', as: 'agregar_inspector'
+
+  get '/ingredientes/agregar', to: 'ingredientes#agregar', as: 'agregar_ingrediente'
+
   get '/establecimiento_platillos/llenar', to: 'establecimiento_platillos#llenar', as: 'llenar_establecimiento_platillo'
 
-  get '/inspectors/agregar', to: 'inspectors#agregar', as: 'agregar_inspector'
+  get '/establecimiento_platillos/vaciar', to: 'establecimiento_platillos#vaciar', as: 'vaciar_establecimiento_platillo'
+
+  get '/establecimiento_proveedors/vaciar', to: 'establecimiento_proveedors#vaciar', as: 'vaciar_establecimiento_proveedor'
 
   get '/establecimiento_inspectors/llenar', to: 'establecimiento_inspectors#llenar', as: 'llenar_establecimiento_inspector'
 
-   get '/ingredientes/agregar', to: 'ingredientes#agregar', as: 'agregar_ingrediente'
+   get '/establecimiento_inspectors/vaciar', to: 'establecimiento_inspectors#vaciar', as: 'vaciar_establecimiento_inspector'
 
   get '/ingrediente_platillos/llenar', to: 'ingrediente_platillos#llenar', as: 'llenar_ingrediente_platillo'
+
+  get '/ingrediente_platillos/vaciar', to: 'ingrediente_platillos#vaciar', as: 'vaciar_ingrediente_platillo'
+
+
+
+
 
   # devise_for :users
  devise_for :users, :controllers => { registrations: 'registrations' }
@@ -42,9 +54,7 @@ Rails.application.routes.draw do
 
   resources :platillos
 
-  resources :establecimientos do
-    resources :platillos
-  end
+  resources :establecimientos
 
   root 'establecimientos#index'
 

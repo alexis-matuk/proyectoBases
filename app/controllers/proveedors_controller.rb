@@ -61,6 +61,7 @@ class ProveedorsController < ApplicationController
   # DELETE /proveedors/1
   # DELETE /proveedors/1.json
   def destroy
+    EstablecimientoProveedor.where(:proveedor_id => @proveedor.id).destroy_all
     @proveedor.destroy
     respond_to do |format|
       format.html { redirect_to proveedors_url}

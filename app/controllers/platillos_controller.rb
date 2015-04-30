@@ -10,6 +10,7 @@ class PlatillosController < ApplicationController
   # GET /platillos/1
   # GET /platillos/1.json
   def show
+     @ingredientes = Ingrediente.select("ingredientes.*").joins("JOIN ingrediente_platillos ON ingrediente_platillos.ingrediente_id = ingredientes.id").where("ingrediente_platillos.platillo_id = ?",params[:id])
   end
 
  def agregar
@@ -34,8 +35,6 @@ class PlatillosController < ApplicationController
     @platillo = Platillo.new(platillo_params.except(:establecimiento_id))
     respond_to do |format|
       if @platillo.save
-        @establecimiento_platillo = EstablecimientoPlatillo.new(establecimiento_id: platillo_params[:establecimiento_id], platillo_id: @platillo.id, introduccion: Time.now)
-        @establecimiento_platillo.save
         format.html { redirect_to @platillo}
         format.json { render :show, status: :created, location: @platillo }
       else
@@ -62,9 +61,10 @@ class PlatillosController < ApplicationController
   # DELETE /platillos/1
   # DELETE /platillos/1.json
   def destroy
+    EstablecimientoPlatillo.where(:platillo_id => @platillo.id).destroy_all
     @platillo.destroy
     respond_to do |format|
-      format.html { redirect_to platillos_url}
+      format.html { redirect_to (platillos_url) and return} 
       format.json { head :no_content }
     end
   end

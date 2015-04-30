@@ -57,6 +57,9 @@ class EstablecimientosController < ApplicationController
   # DELETE /establecimientos/1
   # DELETE /establecimientos/1.json
   def destroy
+    EstablecimientoPlatillo.where(:establecimiento_id => @establecimiento.id).delete_all
+    EstablecimientoProveedor.where(:establecimiento_id => @establecimiento.id).delete_all
+    EstablecimientoInspector.where(:establecimiento_id => @establecimiento.id).delete_all
     @establecimiento.destroy
     respond_to do |format|
       format.html { redirect_to establecimientos_url}

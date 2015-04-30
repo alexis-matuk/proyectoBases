@@ -61,6 +61,7 @@ class IngredientesController < ApplicationController
   # DELETE /ingredientes/1
   # DELETE /ingredientes/1.json
   def destroy
+  IngredientePlatillo.where(:ingrediente_id => @ingrediente.id).destroy_all
     @ingrediente.destroy
     respond_to do |format|
       format.html { redirect_to ingredientes_url}

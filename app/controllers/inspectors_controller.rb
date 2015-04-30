@@ -59,6 +59,7 @@ class InspectorsController < ApplicationController
   # DELETE /inspectors/1
   # DELETE /inspectors/1.json
   def destroy
+    EstablecimientoInspector.where(:inspector_id => @inspector.id).destroy_all
     @inspector.destroy
     respond_to do |format|
       format.html { redirect_to inspectors_url}

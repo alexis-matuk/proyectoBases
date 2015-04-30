@@ -31,6 +31,10 @@ def llenar
       redirect_to agregar_inspector_path(id: @establecimiento), :flash => { :error => "Ese proveedor ya está asociado al establecimiento" }
     end
   end
+
+  def vaciar
+    EstablecimientoInspector.where(:inspector_id => params[:id]).delete_all
+  end
   # POST /establecimiento_inspectors
   # POST /establecimiento_inspectors.json
   def create

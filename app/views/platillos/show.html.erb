@@ -53,7 +53,34 @@
                                   <section class="panel">  
                                   <!--AQUI EMPIEZA LA PRIMERA TAB-->                                     
                             <div class="col-sm-12">    
-                            <%= link_to 'Añadir Ingrediente', agregar_ingrediente_path(id: @platillo),  class: "btn btn-success pull-right" %>     
+                            <%= link_to 'Añadir Ingrediente', agregar_ingrediente_path(id: @platillo),  class: "btn btn-success pull-right" %>   
+                                   <table class="table table-striped">
+                              <thead>
+                              <tr>
+                                  <th>Nombre</th>
+                                  <th>Precio</th>
+                                  <th>Edit</th>
+                                  <th>Delete</th>
+
+                              </tr>
+                              </thead>
+                              <tbody>
+                              
+
+                              <% @ingredientes.each do |ingrediente| %>
+                              <tr>
+                                <td><%= ingrediente.nombre %></td>
+                                <td><%= ingrediente.precio %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-primary"><i class="icon_pencil"></i></div></div>'.html_safe, edit_ingrediente_path(ingrediente) %></td>
+                                <td><%= link_to '<div class "btn-group"><div class="btn btn-danger"><i class="icon_minus_alt2"></i></div></div>'.html_safe, vaciar_ingrediente_platillo_path(id: ingrediente.id), data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                             <br>
+                           <% end %>
+
+
+
+                            </tbody>
+                          </table>  
                           </div>
                         </section>
                     
