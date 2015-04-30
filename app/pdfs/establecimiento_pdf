@@ -1,0 +1,7 @@
+class EstablecimientoPdf < Prawn::Document
+	def initialize(establecimiento, view)
+    super()
+    text "Estos son establecimientos"
+  end
+
+end
