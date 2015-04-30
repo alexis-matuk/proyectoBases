@@ -1,5 +1,6 @@
-<h2>Sign up</h2>
+<% if user_signed_in? %>
 
+<h2>Sign up</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -29,6 +30,12 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-<% end %>
+  <%= render "devise/shared/links" %>
+  <% end %>
+  <% else %>
 
-<%= render "devise/shared/links" %>
+  <script type="text/javascript">
+    window.location.replace("/") // put your correct path in a string here
+  </script>
+
+  <% end %>

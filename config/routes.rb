@@ -19,8 +19,9 @@ Rails.application.routes.draw do
 
   get '/ingrediente_platillos/llenar', to: 'ingrediente_platillos#llenar', as: 'llenar_ingrediente_platillo'
 
+ post '/users/sign_up', to: 'devise/sessions#create'
   # devise_for :users
- devise_for :users, :controllers => { registrations: 'registrations' }
+ devise_for :users, except: :sign_up, :controllers => { registrations: 'registrations' }
 
   resources :ingrediente_platillos
 
