@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'bootstrap-theme.css'
+ *= require 'elegant-icons-style.css'
+ *= require 'font-awesome.css'
+ *= require 'style.css'
+ *= require 'style-responsive.css'
+ *= require 'xcharts.min.css'
+ *= require 'bootstrap.min.css'
  */
